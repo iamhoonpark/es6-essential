@@ -4,6 +4,7 @@ const obj = {
   name: 'Jake',
   age: 20,
 };
+
 // 코딩하는 시점에, 정적으로 접근이 확정됨
 obj.age;
 obj.name;
