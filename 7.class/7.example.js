@@ -5,15 +5,8 @@ class Counter {
   #value;
 
   constructor(startValue) {
-    if (startValue < 0) {
-      console.log('음수입니다. 어플리케이션을 종료합니다.');
-      return;
-    } else if (!isNaN(startValue)) {
-      console.log('숫자만 입력 가능합니다. 어플리케이션을 종료합니다.');
-      return;
-    } else if (!startValue) {
-      console.log('값을 찾을 수 없습니다. 어플리케이션을 종료합니다.');
-      return;
+    if (isNaN(startValue) || startValue < 0) {
+      this.#value = 0;
     } else {
       this.#value = startValue;
     }
@@ -28,7 +21,7 @@ class Counter {
   };
 }
 
-const counter = new Counter();
+const counter = new Counter(10);
 counter.increment();
 console.log(counter.value);
 counter.increment();
