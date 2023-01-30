@@ -57,8 +57,8 @@ console.log(num6); // 0.10000000000000003 으로 출력
 // 똑같은지 아닌지 검사하는 함수를 통해 검증
 function isEqual(original, expected) {
   //   return original === expected;
-  return original - expected < Number.EPSILON; // 예시
-  // return Math.abs(original - expected) < Number.EPSILON; // 대가 절대값 함수를 이용해서 사용함
+  // return original - expected < Number.EPSILON; // 예시
+  return Math.abs(original - expected) < Number.EPSILON; // 대개 절대값 함수를 이용해서 사용함
 }
 console.log(isEqual(1, 1));
 console.log(isEqual(0.1, 0.1));
