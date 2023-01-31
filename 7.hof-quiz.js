@@ -3,16 +3,7 @@
 // input: ['🍌', '🍓', '🍇', '🍓']
 // output: [ '🍌', '🥝', '🍇', '🥝' ]
 function replace(array, from, to) {
-  const replaced = Array.from(array);
-
-  for (let i = 0; i < replaced.length; i++) {
-    if (replaced[i] === from) {
-      // 교체는 index에 접근해도 가능, 추가삭제는 함수를 권고
-      replaced[i] = to;
-      // newArr.splice(i, 1, to);
-    }
-  }
-  return replaced;
+  return array.map((item) => (item === from ? to : item));
 }
 const array = ['🍌', '🍓', '🍇', '🍓'];
 const result = replace(array, '🍓', '🥝');
@@ -24,13 +15,7 @@ console.log(array, result);
 // input: [ '🍌', '🥝', '🍇', '🥝' ], '🥝'
 // output: 2
 function count(array, item) {
-  let counter = 0;
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] === item) {
-      counter++;
-    }
-  }
-  return counter;
+  return array.filter((value) => value === item).length;
 }
 console.log(count(['🍌', '🥝', '🍇', '🥝'], '🥝'));
 
@@ -39,12 +24,14 @@ console.log(count(['🍌', '🥝', '🍇', '🥝'], '🥝'));
 // input: ['🍌', '🥝', '🍇'],  ['🍌', '🍓', '🍇', '🍓']
 // output: [ '🍌', '🍇' ]
 function match(input, search) {
-  const result = [];
-  for (let i = 0; i < input.length; i++) {
-    if (search.includes(input[i])) {
-      result.push(input[i]);
-    }
-  }
-  return result;
+  return input.filter((item) => search.includes(item));
 }
 console.log(match(['🍌', '🥝', '🍇'], ['🍌', '🍓', '🍇', '🍓']));
+
+// 퀴즈4: 5이상(보다 큰)의 숫자들의 평균
+// 세번째 인자: 사용하지 않는 경우 밑줄
+const numbs = [3, 16, 5, 25, 4, 34, 21];
+const result2 = numbs
+  .filter((item) => item > 5)
+  .reduce((avg, num, _, array) => avg + num / array.length, 0);
+console.log(result2);
