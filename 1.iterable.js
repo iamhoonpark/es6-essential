@@ -22,3 +22,36 @@
     }
  * - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols
  */
+
+// 배열
+const array = [1, 2, 3];
+
+// for...of 연산자: 배열 안에 있는 요소들을 한 개씩 받아오는 연산자
+for (const item of array) {
+  /**
+   * 배열은 이터레이션 프로토콜을 따른다
+   *  - 그래서 for of 연산자를 사용했을 때
+   *  - Array 안에있는 [Symbol.iterator](): 함수를 호출해서 반환된 IterableIterator<T> 를 가지고 하나하나씩 next()를 호출하면서 값을 순회
+   */
+  console.log(item);
+}
+console.log('────────────────────────');
+
+for (const item of array.values()) {
+  console.log(item);
+}
+console.log('────────────────────────');
+
+for (const item of array.keys()) {
+  console.log(item);
+}
+console.log('────────────────────────');
+
+for (const item of array.entries()) {
+  console.log(item);
+}
+
+const object = { 0: 1, 1: 2 };
+for (const item of object) {
+  console.log(item);
+} // TypeError: object is not iterable > for...of > for...in object의 key를 출력
