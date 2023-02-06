@@ -51,7 +51,33 @@ for (const item of array.entries()) {
   console.log(item);
 }
 
+// for...in
 const object = { 0: 1, 1: 2 };
-for (const item of object) {
+for (const item in object) {
   console.log(item);
 } // TypeError: object is not iterable > for...of > for...in object의 key를 출력
+console.log('────────────────────────');
+
+/**
+ * 수동적으로 next() 함수를 직접 호출
+ * - 값을 하나만 호출하고 싶을 때
+ * - next 를 호출하면 value와 done 이라는 key를 확인할 수 있음
+ * - value: 실제값
+ * - done: 반복이 끝났는지 안 끝났는지 여부(마지막 아이템 확인 여부)
+ */
+const iterator = array.values();
+// console.log(iterator.next());
+// console.log(iterator.next().value);
+// console.log(iterator.next().value);
+// console.log(iterator.next().value);
+// console.log(iterator.next().value);
+// console.log(iterator.next().done); // 마지막 아이템 = true
+
+/**
+ * 상위 next 함수를 while을 통해서
+ */
+while (true) {
+  const item = iterator.next();
+  if (item.done) break;
+  console.log(item.value);
+}
