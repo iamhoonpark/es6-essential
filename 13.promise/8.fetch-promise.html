@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+        fetch
+        - JS언어가 아닌 브라우저에서 제공해주는 서버와 통신이 가능한 비동기 API
+        - Promise 객체를 리턴하는데, Promise는 Response라는 오브젝트를 전달
+        - 즉, 무언가를 요청하면 Promise가 Response를 리턴해줌
+        - Promise가 리턴되면 then을 사용해야 함
+    -->
+    <script>
+      // Response 객체에 있는 json함수는 자바스크립트에서 사용할 수 있도록 JSON을 Object로 변환하는 함수이며,
+      // Promise 객체를 리턴하기 때문에 JSON을 변환하는데 시간이 조금 걸릴 수 있는 비동기이기 때문에 체이닝처럼 비동기 코드로 작성해야 함
+      // ※ https://developer.mozilla.org/en-US/docs/Web/API/Response/json
+      fetch(
+        'https://www.7timer.info/bin/api.pl?lon=113.17&lat=23.09&product=astro&output=json'
+      )
+        .then((response) => response.json())
+        .then(console.log);
+    </script>
+  </body>
+</html>
