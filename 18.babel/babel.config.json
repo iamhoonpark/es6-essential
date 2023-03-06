@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        // 빌드하고자 하는 타겟 설정
+        "targets": {
+          "ie": "8",
+          "firefox": "12",
+          "chrome": "12",
+          "safari": "11.1"
+        },
+        "useBuiltIns": "usage",
+        "corejs": "3.6.5"
+      }
+    ]
+  ]
+}
